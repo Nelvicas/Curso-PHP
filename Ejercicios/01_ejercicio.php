@@ -1,6 +1,17 @@
 
 <?php
 
+
+// comentarios en linea
+
+/*
+comentarios
+en 
+bloque
+*/
+
+
+
 # sintaxis
 # imprimir
 
