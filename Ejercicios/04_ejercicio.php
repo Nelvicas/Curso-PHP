@@ -1,17 +1,4 @@
-
-
-<?php
-
-    if($_POST){
-        
-    // recibir informacion del formulario HTML (metodo POST)
-    $nombre=$_POST['txtNombre'];
-    echo "Hola ".$nombre;
-
-    }
-?>
-
-<!--// incluir codigo html -->
+<!--  Envio de variables, concatenacion y string  -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,18 +8,14 @@
     <title>Document</title>
 </head>
 <body>
-    <!--Hola Mundo--> 
 
-    <form action="02_ejercicio.php" method="post">
-        Nombre: 
+    <form action="04_ejercicio.php" method="post">
+
+        Nombre:
         <input type="text" name="txtNombre" id="">
-        <br/>
+        <br>
         <input type="submit" value="Enviar">
-
-
     </form>
-
-
     
 </body>
 </html>
