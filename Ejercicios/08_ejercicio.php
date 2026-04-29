@@ -1,4 +1,4 @@
-<!-- Operadores aritmeticos -->
+<!-- Operadores relacionales  -->
 
 
 <?php 
@@ -8,19 +8,9 @@ if($_POST){
     $valorA=$_POST['valorA'];
     $valorB=$_POST['valorB'];
     
-    // Suma 
-    $suma= $valorA + $valorB;
-    // Resta
-    $resta= $valorA - $valorB;
-    // Divicion 
-    $divicion= $valorA / $valorB;
-    // Multiplicacion 
-    $multiplicacion= $valorA * $valorB;
-
-    echo "<br>". $suma;
-    echo "<br>". $resta;
-    echo "<br>". $divicion;
-    echo "<br>". $multiplicacion;
+   if($valorA != $valorB){
+    echo "El valor de A es diferente que el valor de B ";
+   }
 }
 
 ?>
@@ -34,7 +24,7 @@ if($_POST){
 </head>
 <body>
 
-    <form action="07_ejercicio.php" method="post">
+    <form action="08_ejercicio.php" method="post">
 
     valor A:
     <input type="text" name="valorA" id="">
