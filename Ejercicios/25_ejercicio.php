@@ -1,10 +1,21 @@
-<!--  Clases  -->
+<!--  Visivilidad de los datos 
+
+    public
+    private
+    protected
+
+-->
 
 <?php
 
 class persona{
 
     public $nombre;      // propiedades
+    private $edad;
+    protected $altura;
+
+
+
 
     public function asignarNombre($nuevoNombre){       // acciones o metodos
         $this->nombre=$nuevoNombre;
@@ -12,6 +23,12 @@ class persona{
 
     public function imprimirNombre(){
         echo "Hola soy ".$this->nombre;
+    }
+
+
+    public function mostrarEdad(){
+        $this->edad = 20;
+        return $this->edad; 
     }
 }
 
@@ -24,8 +41,10 @@ $objAlumno2 ->asignarNombre("Pedro");
 $objAlumno2 ->imprimirNombre();
 
 
+
 echo $objAlumno-> nombre;     // imprimir una propiedad
 echo $objAlumno2-> nombre;
+echo $objAlumno2->mostrarEdad();
 
 
 ?>
