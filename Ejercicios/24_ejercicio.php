@@ -1,4 +1,4 @@
-<!--  Clases  -->
+<!--  Clases :  es como una plantilla  -->
 
 <?php
 

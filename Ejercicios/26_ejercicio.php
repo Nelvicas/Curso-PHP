@@ -29,8 +29,8 @@ class trabajador extends persona{
 
     public $puesto;    // nueva propiedad
 
-    public function presentarseComoTrabajador(){
-        echo "Hola soy ".$this->nombre." y soy un ".$this->puesto;
+    public function presentarseComoTrabajador(){          /// metodo nuevo 
+        echo "Hola soy ".$this->nombre." y soy un ".$this->puesto. " y tengo ".$this->mostrarEdad(). " años"."<br>";
     }
 }
 
@@ -38,7 +38,11 @@ class trabajador extends persona{
 $objTrabajador= new trabajador();       // instancia o creacion de un objeto
 $objTrabajador->asignarNombre("Oscar Perez");      // llamando un metodo
 $objTrabajador->puesto ="Profesor";
+//$objTrabajador->mostrarEdad();
 
 $objTrabajador->presentarseComoTrabajador();
+
+$objTrabajador->imprimirNombre();
+
 
 ?>
