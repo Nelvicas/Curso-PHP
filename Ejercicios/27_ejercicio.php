@@ -11,7 +11,7 @@ class persona2{
     protected $altura;
 
 
-    function __construct($nuevoNombre)
+    function __construct($nuevoNombre)      // constructor
     {
         $this->nombre=$nuevoNombre;
     }
