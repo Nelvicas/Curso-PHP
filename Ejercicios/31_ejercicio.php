@@ -1,5 +1,5 @@
 <!--   Phpmyadmin crear base de datos   
-   insertar datos en mysql con php -->
+   leer datos en mysql con php -->
 
 
 <?php
@@ -14,10 +14,22 @@ try{     // try-catch ->  condicional de errores pueden se controlados
     $conexion=new PDO("mysql:host=$servidor;port=3307;dbname=album",$usuario,$contrasenia);  //PDO es una clase para poder conectarse a la base de datos
     $conexion->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-    // insertar datos
-    $sql = "INSERT INTO `fotos` (`id`, `nombre`, `ruta`) VALUES (NULL, 'jugando con la pelota', 'pelota.jpg');";
+    // leer datos
 
-    $conexion->exec($sql);
+    $sql="SELECT * FROM `fotos`";              // consulta
+    $sentencia=$conexion->prepare($sql);       // sentencia para que ejecute la consulta mediante PDO
+    $sentencia->execute();                     // metodo de ejecucion
+
+    $resultado=$sentencia->fetchAll();         // el resultado de sentencia se va a almacenar en resultado
+
+    //print_r($resultado);
+
+
+    ///  medainte un foreach
+
+    foreach($resultado as $foto){
+        echo $foto['nombre']."<br>";
+    }
 
     echo "Conexion establecida!!";
 
