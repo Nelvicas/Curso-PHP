@@ -17,6 +17,7 @@
 
 
     $lsAnime="";
+    $txtComentario="";
 
 
     if($_POST){
@@ -30,6 +31,8 @@
          $chkcss= (isset($_POST['chkcss'])=="si")?"checked":"";
 
          $lsAnime=(isset($_POST['lsAnime']))?$_POST['lsAnime']:"";
+
+         $txtComentario=(isset($_POST['txtComentario']))?$_POST['txtComentario']:""; 
 
          //print_r($lsAnime);
 
@@ -57,6 +60,9 @@
     <br>
     <strong>Tu anime favorito es :</strong><br/>                   <!-- option  -->
     <?php echo $lsAnime; ?>
+    <br>
+    <strong>Tu mensaje es: </strong> <?php  echo $txtComentario; ?>
+    <br>
     <br>
     <strong> ////////////////////////////// </strong> <?php ?><br>
     <?php } ?>
@@ -99,6 +105,13 @@
 
 
         <!-- textarea  -->
+
+        ¿Tienes alguna duda? <br>
+        <textarea name="txtComentario" id="" cols="30" rows="10" >
+            <?php echo $txtComentario; ?>
+        </textarea>
+        <br>
+        <br>
 
 
         <input type="submit" value="Enviar Informacion">
