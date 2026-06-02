@@ -1,0 +1,10 @@
+<!--  Funcion para JSON encode   ---->
+
+<?php 
+
+
+$persona= array("Oscar"=>40,"Jose"=>20,"Marisa"=>38);
+
+echo json_encode($persona);
+
+?>
