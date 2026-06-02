@@ -21,7 +21,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="35_ejercicio.php" enctype="multipart/form-data" method="post">
+    <form action="36_ejercicio.php" enctype="multipart/form-data" method="post">
 
     Imagen:
     <input type="file" name="archivo" id="">
