@@ -1,3 +1,18 @@
+<?php
+
+if($_POST){
+
+    if(($_POST['usuario']=="develoteca") && ($_POST['contrasenia']=="12345")){
+
+       header("location:index.php");
+    }else{
+        echo "<script> alert('Usuario o contraseña incorrecta'); </script>";
+    }
+}
+
+?>
+
+
 <!doctype html>
 <html lang="en" data-bs-theme="light">
     <head>
@@ -31,7 +46,7 @@
 
                             Usuario: <input class="form-control" type="text" name="usuario" id="">
                             <br>
-                            Contraseña: <input class="form-control" type="text" name="contrasenia" id="">
+                            Contraseña: <input class="form-control" type="password" name="contrasenia" id="">
                             <br>
                             <button class="btn btn-success" type="submit">Entrar al portafolio</button>
                         </form>
