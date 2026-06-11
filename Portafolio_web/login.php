@@ -1,10 +1,11 @@
 <?php
-
+session_start();
 if($_POST){
 
     if(($_POST['usuario']=="develoteca") && ($_POST['contrasenia']=="12345")){
-
-       header("location:index.php");
+        $_SESSION['usuario']="develoteca";
+        
+        header("location:index.php");
     }else{
         echo "<script> alert('Usuario o contraseña incorrecta'); </script>";
     }
