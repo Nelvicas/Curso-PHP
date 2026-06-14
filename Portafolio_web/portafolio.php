@@ -8,7 +8,7 @@ if($_POST){
 
     print_r($_POST);
 
-    $nombre= $_POST['nombre'];
+    $nombre= $_POST['nombre'];  // insertar datos
 
 $objConexion = new conexion();
 $sql="INSERT INTO `proyectos` (`id`, `nombre`, `imagen`, `descripcion`) VALUES (NULL, '$nombre', 'imagen.jpg', 'Es un proyecto de hace mucho tiempo');";
@@ -16,9 +16,14 @@ $objConexion->ejecutar($sql);
 
 }
 
+$objConexion= new conexion();
+$resultado = $objConexion->consultar("SELECT * FROM `proyectos`");
+
+print_r($resultado);
+
 ?>
 
-    <br><br>
+    <br><br>   <!--// formulario -->
 
     <div class="container">
         <div class="row">
