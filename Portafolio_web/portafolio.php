@@ -27,7 +27,7 @@
                             <thead>
                                 <tr>
                                     <th scope="col">ID</th>
-                                    <th scope="col">Nombre del proyecto</th>
+                                    <th scope="col">Nombre</th>
                                     <th scope="col">Imagen</th>
                                 </tr>
                             </thead>
