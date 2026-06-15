@@ -27,10 +27,16 @@ if($_POST){
 
 if($_GET){
 
-    $objConexion = new conexion();    // ontener datos con get y eliminarlos 
-    $sql= "DELETE FROM proyectos WHERE `proyectos`.`id` = ".$_GET['borrar'];
+    $id= $_GET['borrar'];
+    $objConexion = new conexion();    // obtener datos con get y eliminarlos 
+
+    $imagen=$objConexion->consultar("SELECT imagen FROM `proyectos` WHERE id=".$id);
+    unlink("imagenes/".$imagen[0]['imagen']);
+
+    $sql= "DELETE FROM proyectos WHERE `proyectos`.`id` = ".$id;
     $objConexion->ejecutar($sql);
 }
+
 
 
 $objConexion= new conexion();    // consultar datos 
