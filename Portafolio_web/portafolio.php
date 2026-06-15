@@ -16,6 +16,14 @@ $objConexion->ejecutar($sql);
 
 }
 
+if($_GET){
+
+    $objConexion = new conexion();
+    $sql= "DELETE FROM proyectos WHERE `proyectos`.`id` = ".$_GET['borrar'];
+    $objConexion->ejecutar($sql);
+}
+
+
 $objConexion= new conexion();
 $proyectos = $objConexion->consultar("SELECT * FROM `proyectos`");
 
@@ -58,11 +66,11 @@ $proyectos = $objConexion->consultar("SELECT * FROM `proyectos`");
                             <tbody>
                                 <?php foreach($proyectos as $proyecto){ ?>
                                     <tr class="">
-                                        <td> <?php echo $proyecto['id'] ?> </td>
-                                        <td> <?php echo $proyecto['nombre'] ?></td>
-                                        <td> <?php echo $proyecto['imagen'] ?></td>
-                                        <td> <?php echo $proyecto['descripcion'] ?></td>
-                                        <td><a name="" id="" class="btn btn-danger" href="#" role="button" >Eliminar</a> </td>
+                                        <td> <?php echo $proyecto['id']; ?> </td>
+                                        <td> <?php echo $proyecto['nombre']; ?></td>
+                                        <td> <?php echo $proyecto['imagen']; ?></td>
+                                        <td> <?php echo $proyecto['descripcion']; ?></td>
+                                        <td><a name="" id="" class="btn btn-danger" href="?borrar=<?php echo $proyecto['id']; ?>" role="button" >Eliminar</a> </td>
                                     </tr>
                                 <?php } ?>
                                 
