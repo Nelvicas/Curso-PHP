@@ -20,7 +20,7 @@ if($_POST){
     $objConexion = new conexion();
     $sql="INSERT INTO `proyectos` (`id`, `nombre`, `imagen`, `descripcion`) VALUES (NULL, '$nombre', '$imagen', '$descripcion');";
     $objConexion->ejecutar($sql);
-
+    header("location:portafolio.php");
 
 
 }
@@ -35,6 +35,7 @@ if($_GET){
 
     $sql= "DELETE FROM proyectos WHERE `proyectos`.`id` = ".$id;
     $objConexion->ejecutar($sql);
+    header("location:portafolio.php");
 }
 
 
@@ -96,7 +97,9 @@ $proyectos = $objConexion->consultar("SELECT * FROM `proyectos`");
                                                     <tr class="">
                                                         <td> <?php echo $proyecto['id']; ?> </td>
                                                         <td> <?php echo $proyecto['nombre']; ?></td>
-                                                        <td> <?php echo $proyecto['imagen']; ?></td>
+                                                        <td> 
+                                                            <img width="100" src="imagenes/<?php echo $proyecto['imagen']; ?>" alt="" srcset="">
+                                                        </td>
                                                         <td> <?php echo $proyecto['descripcion']; ?></td>
                                                         <td><a name="" id="" class="btn btn-danger" href="?borrar=<?php echo $proyecto['id']; ?>" role="button" >Eliminar</a> </td>
                                                     </tr>
