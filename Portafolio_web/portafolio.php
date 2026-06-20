@@ -61,12 +61,12 @@ $proyectos = $objConexion->consultar("SELECT * FROM `proyectos`");
 
                  
                             <form action="portafolio.php" method="post"  enctype="multipart/form-data">
-                                    Nombre del proyecto: <input class="form-control" type="text" name="nombre" id="">
+                                    Nombre del proyecto: <input required class="form-control" type="text" name="nombre" id="">
                                     <br>
-                                    Imagen del proyecto: <input class="form-control" type="file" name="archivo" id="">
+                                    Imagen del proyecto: <input required class="form-control" type="file" name="archivo" id="">
                                     <br>
                                     Descripción:
-                                    <textarea class="form-control" name="descripcion" id="" row="3"></textarea>
+                                    <textarea required class="form-control" name="descripcion" id="" row="3"></textarea>
                                     <br>
                                     <input class="btn btn-success" type="submit" value="Enviar proyecto">
                                     
