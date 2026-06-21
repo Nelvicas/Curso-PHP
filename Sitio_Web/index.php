@@ -1,30 +1,17 @@
+<?php  include("template/cabecera.php") ?>
+
+                <div class="jumbotron">
+            
+                    <h1 class="display-3">Bienvenid@s</h1>
+                    <p class="lead"> Este es un portafolio privado </p>
+                    <hr class="my-2">
+                    <p>Mas informacion</p>
+                    <p class="lead">
+                        <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button"></a>
+                    </p>
+            
+                </div>
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sitio Web</title>
+<?php  include("template/pie.php") ?>
 
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-
-</head>
-<body>
-
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-            <ul class="nav navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#" aria-current="page"
-                        >Nav 1 <span class="visually-hidden">(current)</span></a
-                    >
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Nav 2</a>
-                </li>
-            </ul>
-        </nav>
-        
-    
-</body>
-</html>
