@@ -13,9 +13,11 @@
         case "Agregar":
 
             // INSERT INTO `libros` (`id`, `nombre`, `imagen`) VALUES (NULL, 'Libro de php', 'imagen.jpg');
-            $sentenciaSQL= $conexion->prepare("INSERT INTO `libros` (`id`, `nombre`, `imagen`) VALUES (NULL, 'Libro de php', 'imagen.jpg');");
+            $sentenciaSQL= $conexion->prepare("INSERT INTO libros (nombre,imagen) VALUES (:nombre, :imagen);");
+            $sentenciaSQL->bindParam(':nombre',$txtNombre);
+            $sentenciaSQL->bindParam(':imagen',$txtImagen);
             $sentenciaSQL->execute();
-            echo "Presiona boton agregar";
+            
             break;
         case "Modificar":
             echo "Presiona boton modificar";
@@ -24,6 +26,10 @@
             echo "Presiona boton cancelar";
             break;
     }
+
+    $sentenciaSQL= $conexion->prepare("SELECT * FROM libros");
+    $sentenciaSQL->execute();
+    $listaLibros=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
     
@@ -81,12 +87,21 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <?php foreach($listaLibros as $libros) { ?>
                     <tr class="">
-                        <td>2</td>
-                        <td>Aprende php</td>
-                        <td>imagen.jpg</td>
-                        <td>Seleccionar | Borra</td>
+                        <td><?php echo $libros['id'] ?></td>
+                        <td><?php echo $libros['nombre']; ?></td>
+                        <td><?php echo $libros['imagen']; ?></td>
+                        <td>Seleccionar | Borra
+                            <form method="post">
+                                <input type="hidden" name="txtID" id="txtID" value="<?php echo $libros['id']; ?>"/>
+                                <input type="submit" name="accion" value="Seleccionar" class="btn btn-primary"/>
+                                <input type="submit" name="accion" value="Borrar" class="btn btn-danger"/>
+                            </form>
+
+                        </td>
                     </tr>
+                    <?php } ?>
                 </tbody>
             </table>
         
