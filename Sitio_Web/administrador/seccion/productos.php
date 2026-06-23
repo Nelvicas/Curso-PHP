@@ -6,14 +6,26 @@
     $txtImagen=(isset($_FILES['txtImagen']['name']))?$_FILES['txtImagen']['name']:"";
     $accion=(isset($_POST['accion']))?$_POST['accion']:"";
 
+    include("../config/db.php");
 
-    echo $txtID."<br>";
-    echo $txtNombre."<br>";
-    echo $txtImagen."<br>";
-    echo $accion."<br>";
+    switch($accion){
+
+        case "Agregar":
+
+            // INSERT INTO `libros` (`id`, `nombre`, `imagen`) VALUES (NULL, 'Libro de php', 'imagen.jpg');
+            $sentenciaSQL= $conexion->prepare("INSERT INTO `libros` (`id`, `nombre`, `imagen`) VALUES (NULL, 'Libro de php', 'imagen.jpg');");
+            $sentenciaSQL->execute();
+            echo "Presiona boton agregar";
+            break;
+        case "Modificar":
+            echo "Presiona boton modificar";
+            break;
+        case "Cancelar":
+            echo "Presiona boton cancelar";
+            break;
+    }
 
 ?>
-    
     
 
     <div class="col-md-5">
