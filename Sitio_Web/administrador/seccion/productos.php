@@ -15,13 +15,37 @@
             // INSERT INTO `libros` (`id`, `nombre`, `imagen`) VALUES (NULL, 'Libro de php', 'imagen.jpg');
             $sentenciaSQL= $conexion->prepare("INSERT INTO libros (nombre,imagen) VALUES (:nombre, :imagen);");
             $sentenciaSQL->bindParam(':nombre',$txtNombre);
-            $sentenciaSQL->bindParam(':imagen',$txtImagen);
+
+            // almacenar imagen 
+            $fecha= new DateTime();
+            $nombreArchivo=($txtImagen!="")?$fecha->getTimestamp()."_".$_FILES["txtImagen"]["name"]:"imagen.jpg";
+
+            $tmpImagen=$_FILES["txtImagen"]["tmp_name"];
+
+            if($tmpImagen != ""){
+                move_uploaded_file($tmpImagen,"../../img/".$nombreArchivo);
+            }
+
+            $sentenciaSQL->bindParam(':imagen',$nombreArchivo);
             $sentenciaSQL->execute();
             
             break;
         case "Modificar":
-            echo "Presiona boton modificar";
+            //echo "Presiona boton modificar";
+            $sentenciaSQL=$conexion->prepare("UPDATE libros SET nombre=:nombre WHERE id=:id");
+            $sentenciaSQL->bindParam(':nombre',$txtNombre);
+            $sentenciaSQL->bindParam(':id',$txtID);
+            $sentenciaSQL->execute();
+
+            if($txtImagen != ""){
+                $sentenciaSQL=$conexion->prepare("UPDATE libros SET imagen=:imagen WHERE id=:id");
+                $sentenciaSQL->bindParam(':imagen',$txtImagen);
+                $sentenciaSQL->bindParam(':id',$txtID);
+                $sentenciaSQL->execute();
+            }
+
             break;
+
         case "Cancelar":
             echo "Presiona boton cancelar";
             break;
@@ -70,7 +94,7 @@
 
                     <div class="form-group">
                         <label for="txtID">Imagen: </label>
-                        value="<?php echo $txtImagen; ?>"
+                        <?php echo $txtImagen; ?>
                         <input type="file" class="form-control"  name="txtImagen" id="txtImagen" placeholder="Imagen">
                     </div>
                     <br>
