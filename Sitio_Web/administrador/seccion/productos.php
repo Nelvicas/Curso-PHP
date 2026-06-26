@@ -37,6 +37,7 @@
             $sentenciaSQL->bindParam(':id',$txtID);
             $sentenciaSQL->execute();
 
+            //modificar imagen
             if($txtImagen != ""){
 
                 $fecha= new DateTime();
@@ -56,7 +57,7 @@
                     }
                 }
 
-
+                // modificar registro
                 $sentenciaSQL=$conexion->prepare("UPDATE libros SET imagen=:imagen WHERE id=:id");
                 $sentenciaSQL->bindParam(':imagen',$nombreArchivo);
                 $sentenciaSQL->bindParam(':id',$txtID);
@@ -126,6 +127,12 @@
                     <div class="form-group">
                         <label for="txtID">Imagen: </label>
                         <?php echo $txtImagen; ?>
+                        <?php if($txtImagen != ""){ ?>
+
+                            <img class="img-thumbnail rounded" src="../../img/<?php echo $txtImagen; ?>" width="80"  alt="" srcset="">
+
+                        <?php } ?>
+
                         <input type="file" class="form-control"  name="txtImagen" id="txtImagen" placeholder="Imagen">
                     </div>
                     <br>
@@ -163,7 +170,9 @@
                     <tr class="">
                         <td><?php echo $libros['id'] ?></td>
                         <td><?php echo $libros['nombre']; ?></td>
-                        <td><?php echo $libros['imagen']; ?></td>
+                        <td style="text-align: center;">
+                            <img class="img-thumbnail rounded" src="../../img/<?php echo $libros['imagen']; ?>" width="80"  alt="" srcset="">
+                        </td>
                         <td>
                             <form method="post">
                                 <input type="hidden" name="txtID" id="txtID" value="<?php echo $libros['id']; ?>"/>
